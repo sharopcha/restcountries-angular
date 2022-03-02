@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --dark-mode-blue: hsl(209, 23%, 22%);
+    --dark-mode-bg: hsl(207, 26%, 17%);
+    --light-mode-text: hsl(200, 15%, 8%);
+    --light-mode-input: hsl(0, 0%, 52%);
+    --light-mode-bg: hsl(0, 0%, 98%);
+    --dark-mode-text: hsl(0, 0%, 100%);
+  }
+  @font-face {
+    font-family: "NSL";
+    src: url("./assets/fonts/NunitoSansLight.eot");
+    src: url("./assets/fonts/NunitoSansLight.eot") format("embedded-opentype"),
+      url("./assets/fonts/NunitoSansLight.woff2") format("woff2"),
+      url("./assets/fonts/NunitoSansLight.woff") format("woff"),
+      url("./assets/fonts/NunitoSansLight.ttf") format("truetype"),
+      url("./assets/fonts/NunitoSansLight.svg#NunitoSansLight") format("svg");
+  }
+  @font-face {
+    font-family: "NSEB";
+    src: url("./assets/fonts/NunitoSansExtraBold.eot");
+    src: url("./assets/fonts/NunitoSansExtraBold.eot")
+        format("embedded-opentype"),
+      url("./assets/fonts/NunitoSansExtraBold.woff2") format("woff2"),
+      url("./assets/fonts/NunitoSansExtraBold.woff") format("woff"),
+      url("./assets/fonts/NunitoSansExtraBold.ttf") format("truetype"),
+      url("./assets/fonts/NunitoSansExtraBold.svg#NunitoSansExtraBold")
+        format("svg");
+  }
+  @font-face {
+    font-family: "NSSB";
+    src: url("./assets/fonts/NunitoSansSemiBold.eot");
+    src: url("./assets/fonts/NunitoSansSemiBold.eot")
+        format("embedded-opentype"),
+      url("./assets/fonts/NunitoSansSemiBold.woff2") format("woff2"),
+      url("./assets/fonts/NunitoSansSemiBold.woff") format("woff"),
+      url("./assets/fonts/NunitoSansSemiBold.ttf") format("truetype"),
+      url("./assets/fonts/NunitoSansSemiBold.svg#NunitoSansSemiBold")
+        format("svg");
+  }
+}
