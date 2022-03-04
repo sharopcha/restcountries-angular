@@ -1,0 +1,25 @@
+<div class="bg-light-bg dark:bg-dark-bg p-4 text-lg relative font-NSL">
+  <input
+    class="py-3 pl-14 pr-2 bg-light-element dark:bg-dark-element my-2 w-full rounded text-light-input dark:text-yellow-400 placeholder:text-light-input dark:placeholder:text-yellow-400 shadow-skin"
+    type="search"
+    name="search"
+    id="text"
+    placeholder="Search for any country..."
+    [(ngModel)]="text"
+    (ngModelChange)="inputChange($event)"
+  />
+  <span class="absolute left-8 top-10 text-light-text dark:text-yellow-400">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </span>
+</div>

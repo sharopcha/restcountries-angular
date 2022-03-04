@@ -1,0 +1,16 @@
+<section
+  class="rounded-lg shadow-sm overflow-hidden bg-light-element dark:bg-dark-element text-light-text dark:text-dark-text transition-transform ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
+>
+  <div class="h-32">
+    <img src="{{ flag }}" alt="flag" class="object-cover h-32 w-full" />
+  </div>
+  <h2 class="font-NSSB p-4">{{ name }}</h2>
+  <p class="px-4">
+    <span class="font-NSSB">Population:</span> {{ population }}
+  </p>
+  <p class="px-4"><span class="font-NSSB">Region:</span> {{ region }}</p>
+  <p class="px-4 pb-4">
+    <span class="font-NSSB">Capital:</span>
+    {{ capital ? capital : "No capital of this country" }}
+  </p>
+</section>

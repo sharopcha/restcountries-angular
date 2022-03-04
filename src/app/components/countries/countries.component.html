@@ -1,10 +1,44 @@
 <div class="bg-light-bg dark:bg-dark-bg min-h-screen">
+  <section
+    className="md:flex justify-between pt-7 mr-5 2xl:container 2xl:mx-auto"
+  >
+    <app-search (onChnage)="inputChange($event)"></app-search>
+  </section>
   <main
     *ngIf="loading"
     class="min-h-screen flex flex-col justify-start items-center pt-32"
   >
     <app-loader></app-loader>
   </main>
+  <div *ngIf="inputStr.length > 0; else noInput">
+    <main
+      *ngIf="filtered.length > 0"
+      class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
+    >
+      <a
+        *ngFor="let country of filtered"
+        [routerLink]="['/country']"
+        [queryParams]="{ name: country.name.common }"
+      >
+        <app-card
+          name="{{ country.name.common }}"
+          flag="{{ country.flag }}"
+          population="{{ country.population }}"
+          region="{{ country.region }}"
+          capital="{{ country.capital }}"
+        ></app-card>
+      </a>
+    </main>
+  </div>
+  <ng-template #noInput>
+    <main className="flex justify-center items-center min-h-[70vh]">
+      <h2
+        className="mx-4 uppercase font-NSEB text-2xl text-light-text dark:text-dark-text"
+      >
+        No countries match your search
+      </h2>
+    </main>
+  </ng-template>
   <main
     class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
   >
@@ -13,28 +47,13 @@
       [routerLink]="['/country']"
       [queryParams]="{ name: country.name.common }"
     >
-      <section
-        class="rounded-lg shadow-sm overflow-hidden bg-light-element dark:bg-dark-element text-light-text dark:text-dark-text transition-transform ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
-      >
-        <div class="h-32">
-          <img
-            src="{{ country.flag }}"
-            alt="country flag"
-            class="object-cover h-32 w-full"
-          />
-        </div>
-        <h2 class="font-NSSB p-4">{{ country.name.common }}</h2>
-        <p class="px-4">
-          <span class="font-NSSB">Population:</span> {{ country.population }}
-        </p>
-        <p class="px-4">
-          <span class="font-NSSB">Region:</span> {{ country.region }}
-        </p>
-        <p class="px-4 pb-4">
-          <span class="font-NSSB">Capital:</span>
-          {{ country.capital ? country.capital : "No capital of this country" }}
-        </p>
-      </section>
+      <app-card
+        name="{{ country.name.common }}"
+        flag="{{ country.flag }}"
+        population="{{ country.population }}"
+        region="{{ country.region }}"
+        capital="{{ country.capital }}"
+      ></app-card>
     </a>
   </main>
 </div>

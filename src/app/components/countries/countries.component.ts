@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountriesComponent implements OnInit {
   countries: Country[] = [];
+  filtered: Country[] = [];
+  inputStr: string = '';
   loading: boolean = true;
 
   constructor(private countryService: CountryService) {}
@@ -36,5 +38,14 @@ export class CountriesComponent implements OnInit {
         this.loading = false;
       });
     });
+  }
+
+  inputChange(str: string) {
+    this.inputStr = str;
+    this.loading = true;
+    this.filtered = this.countries.filter((filtered) => {
+      return JSON.stringify(filtered).toLowerCase().includes(str.toLowerCase());
+    });
+    this.loading = false;
   }
 }

@@ -9,6 +9,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { CountryComponent } from './components/country/country.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
 
 const appRoutes: Routes = [
   {
@@ -28,12 +31,15 @@ const appRoutes: Routes = [
     CountriesComponent,
     CountryComponent,
     LoaderComponent,
+    SearchComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
