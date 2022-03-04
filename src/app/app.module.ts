@@ -13,6 +13,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { MapComponent } from './components/map/map.component';
 
 const appRoutes: Routes = [
   {
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
   {
     path: 'country',
     component: CountryComponent,
+  },
+  {
+    path: 'map',
+    component: MapComponent,
   },
 ];
 
@@ -35,6 +40,7 @@ const appRoutes: Routes = [
     SearchComponent,
     CardComponent,
     FilterComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

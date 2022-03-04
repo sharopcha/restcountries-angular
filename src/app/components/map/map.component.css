@@ -1,0 +1,19 @@
+.country {
+  opacity: 1;
+  fill: #fff;
+  fill-opacity: 1;
+  fill-rule: evenodd;
+  stroke: none;
+  cursor: pointer;
+}
+
+.country:hover {
+  fill: green;
+  fill-rule: evenodd;
+}
+/*
+Example for painting countries: 
+.GBR {
+  fill: #0000aa !important;
+}
+*/
