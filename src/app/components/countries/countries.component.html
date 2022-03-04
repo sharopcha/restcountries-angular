@@ -1,8 +1,7 @@
 <div class="bg-light-bg dark:bg-dark-bg min-h-screen">
-  <section
-    className="md:flex justify-between pt-7 mr-5 2xl:container 2xl:mx-auto"
-  >
+  <section class="md:flex justify-between pt-7 mr-5 2xl:container 2xl:mx-auto">
     <app-search (onChnage)="inputChange($event)"></app-search>
+    <app-filter (onChange)="onFilterCategory($event)"></app-filter>
   </section>
   <main
     *ngIf="loading"
@@ -10,9 +9,9 @@
   >
     <app-loader></app-loader>
   </main>
-  <div *ngIf="inputStr.length > 0; else noInput">
+  <div *ngIf="inputStr.length > 0 || isCategorySelected; else noInput">
     <main
-      *ngIf="filtered.length > 0"
+      *ngIf="filtered.length > 0; else noFilter"
       class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
     >
       <a
@@ -29,31 +28,33 @@
         ></app-card>
       </a>
     </main>
+    <ng-template #noFilter>
+      <main class="flex justify-center items-center min-h-[70vh]">
+        <h2
+          class="mx-4 uppercase font-NSEB text-2xl text-light-text dark:text-dark-text"
+        >
+          No countries match your search
+        </h2>
+      </main>
+    </ng-template>
   </div>
   <ng-template #noInput>
-    <main className="flex justify-center items-center min-h-[70vh]">
-      <h2
-        className="mx-4 uppercase font-NSEB text-2xl text-light-text dark:text-dark-text"
+    <main
+      class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
+    >
+      <a
+        *ngFor="let country of countries"
+        [routerLink]="['/country']"
+        [queryParams]="{ name: country.name.common }"
       >
-        No countries match your search
-      </h2>
+        <app-card
+          name="{{ country.name.common }}"
+          flag="{{ country.flag }}"
+          population="{{ country.population }}"
+          region="{{ country.region }}"
+          capital="{{ country.capital }}"
+        ></app-card>
+      </a>
     </main>
   </ng-template>
-  <main
-    class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
-  >
-    <a
-      *ngFor="let country of countries"
-      [routerLink]="['/country']"
-      [queryParams]="{ name: country.name.common }"
-    >
-      <app-card
-        name="{{ country.name.common }}"
-        flag="{{ country.flag }}"
-        population="{{ country.population }}"
-        region="{{ country.region }}"
-        capital="{{ country.capital }}"
-      ></app-card>
-    </a>
-  </main>
 </div>

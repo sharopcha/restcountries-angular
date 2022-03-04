@@ -1,0 +1,24 @@
+<div class="bg-light-bg dark:bg-dark-bg text-sm relative font-NSL">
+  <label
+    htmlFor="select"
+    class="ml-4 font-NSEB text-light-text dark:text-dark-text"
+  >
+    Regions:
+  </label>
+  <select
+    name="regions"
+    id="select"
+    class="my-4 ml-5 p-3 shadow-skin w-52 bg-light-element dark:bg-dark-element dark:text-dark-text"
+    defaultValue="Filter by Region"
+    [(ngModel)]="category"
+    (ngModelChange)="selectCategory($event)"
+  >
+    <option value="Filter by Region" disabled hidden>Filter by Region</option>
+    <option value="all">All Regions</option>
+    <option value="Africa">Africa</option>
+    <option value="Americas">Americas</option>
+    <option value="Asia">Asia</option>
+    <option value="Europe">Europe</option>
+    <option value="Oceania">Oceania</option>
+  </select>
+</div>

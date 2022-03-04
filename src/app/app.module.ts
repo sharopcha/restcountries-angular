@@ -12,6 +12,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     LoaderComponent,
     SearchComponent,
     CardComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

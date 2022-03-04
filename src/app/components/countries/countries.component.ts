@@ -12,6 +12,7 @@ export class CountriesComponent implements OnInit {
   filtered: Country[] = [];
   inputStr: string = '';
   loading: boolean = true;
+  isCategorySelected: boolean = false;
 
   constructor(private countryService: CountryService) {}
 
@@ -45,6 +46,15 @@ export class CountriesComponent implements OnInit {
     this.loading = true;
     this.filtered = this.countries.filter((filtered) => {
       return JSON.stringify(filtered).toLowerCase().includes(str.toLowerCase());
+    });
+    this.loading = false;
+  }
+
+  onFilterCategory(str: string) {
+    this.isCategorySelected = true;
+    this.loading = true;
+    this.filtered = this.countries.filter((filtered) => {
+      return filtered.region == str;
     });
     this.loading = false;
   }
