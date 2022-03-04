@@ -9,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountriesComponent implements OnInit {
   countries: Country[] = [];
+  loading: boolean = true;
 
   constructor(private countryService: CountryService) {}
 
   ngOnInit(): void {
-    this.countryService.getAllCountries().subscribe((array) =>
+    this.countryService.getAllCountries().subscribe((array) => {
+      this.loading = false;
       array.forEach((c: any) => {
         const country: Country = {
           name: { common: c.name.common, official: c.name.official },
@@ -29,7 +31,9 @@ export class CountriesComponent implements OnInit {
         };
 
         this.countries.push(country);
-      })
-    );
+
+        this.loading = false;
+      });
+    });
   }
 }

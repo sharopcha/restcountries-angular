@@ -38,7 +38,7 @@ export class CountryComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.name = params['name'];
     });
-
+    this.loading = false;
     this.populate();
   }
 

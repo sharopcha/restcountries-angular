@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { CountryComponent } from './components/country/country.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     CountriesComponent,
     CountryComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

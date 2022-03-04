@@ -1,5 +1,11 @@
 <div class="bg-light-bg dark:bg-dark-bg min-h-screen">
   <main
+    *ngIf="loading"
+    class="min-h-screen flex flex-col justify-start items-center pt-32"
+  >
+    <app-loader></app-loader>
+  </main>
+  <main
     class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
   >
     <a
