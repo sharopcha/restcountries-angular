@@ -7,21 +7,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CountriesComponent } from './components/countries/countries.component';
+import { CountryComponent } from './components/country/country.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: CountriesComponent,
   },
+  {
+    path: 'country/:name',
+    component: CountryComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CountriesComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    CountriesComponent,
+    CountryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -15,4 +15,8 @@ export class CountryService {
   getAllCountries(): Observable<any> {
     return this.http.get<any>(`${this.url}/all`);
   }
+
+  getCountry(name: string): Observable<any> {
+    return this.http.get<any>(`${this.url}/name/${name}`);
+  }
 }

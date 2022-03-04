@@ -2,27 +2,32 @@
   <main
     class="grid grid-cols-1 gap-12 py-5 px-12 sm:px-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 2xl:container 2xl:mx-auto"
   >
-    <section
+    <a
       *ngFor="let country of countries"
-      class="rounded-lg shadow-sm overflow-hidden bg-light-element dark:bg-dark-element text-light-text dark:text-dark-text transition-transform ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
+      [routerLink]="['/country', country.name.common]"
     >
-      <div class="h-32">
-        <img
-          src="{{ country.flag }}"
-          alt="country flag"
-          class="object-cover h-32 w-full"
-        />
-      </div>
-      <h2 class="font-NSSB p-4">{{ country.name.common }}</h2>
-      <p class="px-4">
-        <span class="font-NSSB">Population:</span>
-      </p>
-      <p class="px-4">
-        <span class="font-NSSB">Region:</span>
-      </p>
-      <p class="px-4 pb-4">
-        <span class="font-NSSB">Capital:</span>
-      </p>
-    </section>
+      <section
+        class="rounded-lg shadow-sm overflow-hidden bg-light-element dark:bg-dark-element text-light-text dark:text-dark-text transition-transform ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
+      >
+        <div class="h-32">
+          <img
+            src="{{ country.flag }}"
+            alt="country flag"
+            class="object-cover h-32 w-full"
+          />
+        </div>
+        <h2 class="font-NSSB p-4">{{ country.name.common }}</h2>
+        <p class="px-4">
+          <span class="font-NSSB">Population:</span> {{ country.population }}
+        </p>
+        <p class="px-4">
+          <span class="font-NSSB">Region:</span> {{ country.region }}
+        </p>
+        <p class="px-4 pb-4">
+          <span class="font-NSSB">Capital:</span>
+          {{ country.capital ? country.capital : "No capital of this country" }}
+        </p>
+      </section>
+    </a>
   </main>
 </div>

@@ -11,5 +11,10 @@ export interface Country {
   tld: string[];
   currencies: {};
   languages: {};
-  borders: string[];
+  borders: string[] | null;
+}
+
+export interface Currency {
+  name: string;
+  symbol: string;
 }
