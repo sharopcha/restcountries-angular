@@ -28,6 +28,7 @@ export class CountriesComponent implements OnInit {
           subregion: c.subregion,
           tld: c.tld,
           flag: c.flags['svg'],
+          cioc: c.cioc,
         };
 
         this.countries.push(country);

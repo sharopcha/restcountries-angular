@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     component: CountriesComponent,
   },
   {
-    path: 'country/:name',
+    path: 'country',
     component: CountryComponent,
   },
 ];

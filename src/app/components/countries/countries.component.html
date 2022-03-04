@@ -10,7 +10,8 @@
   >
     <a
       *ngFor="let country of countries"
-      [routerLink]="['/country', country.name.common]"
+      [routerLink]="['/country']"
+      [queryParams]="{ name: country.name.common }"
     >
       <section
         class="rounded-lg shadow-sm overflow-hidden bg-light-element dark:bg-dark-element text-light-text dark:text-dark-text transition-transform ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"

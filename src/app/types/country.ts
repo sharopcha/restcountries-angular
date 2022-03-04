@@ -3,6 +3,7 @@ export interface Country {
     common: string;
     official: string;
   };
+  cioc: string;
   flag: string;
   population: number;
   region: string;

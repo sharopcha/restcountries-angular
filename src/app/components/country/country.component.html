@@ -81,12 +81,14 @@
           <span class="font-NSSB">Border Countries: </span>
 
           <div *ngIf="country.borders" class="flex justify-center">
-            <span
+            <a
               *ngFor="let border of country.borders"
-              class="my-4 mx-2 py-1 px-2 rounded shadow-skin text-base bg-light-element dark:bg-dark-element"
+              [routerLink]="['/country']"
+              [queryParams]="{ cioc: border }"
+              class="my-4 mx-2 py-1 px-2 rounded shadow-skin text-base hover:bg-dark-bg hover:text-white dark:hover:bg-light-bg dark:hover:text-black bg-light-element dark:bg-dark-element cursor-pointer"
             >
               <p>{{ border }}</p>
-            </span>
+            </a>
           </div>
 
           <span *ngIf="!country.borders" class="inline">None</span>

@@ -16,7 +16,11 @@ export class CountryService {
     return this.http.get<any>(`${this.url}/all`);
   }
 
-  getCountry(name: string): Observable<any> {
+  getCountryByName(name: string): Observable<any> {
     return this.http.get<any>(`${this.url}/name/${name}`);
+  }
+
+  getCountryByCioc(name: string): Observable<any> {
+    return this.http.get<any>(`${this.url}/alpha/${name}`);
   }
 }
